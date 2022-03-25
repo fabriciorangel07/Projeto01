@@ -2,7 +2,7 @@ module.exports = {
     host: "localhost",
     dialect: "mysql",
     username: "root",
-    password: "fatec123*",
+    password: "123456",
     database: "webIII",
     define: {
         timestamps: true,
