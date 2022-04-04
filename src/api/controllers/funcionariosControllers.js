@@ -23,7 +23,7 @@ module.exports = {
 
     async store(req, res) {
         const { empresa_id } = req.params
-        const { fun_nome, fun_email, fun_password } = req.body
+        const { fun_nome, fun_email, fun_password, fun_sexo } = req.body
 
         console.log('Parametro esperado: ' + empresa_id)
         console.log('Dados: ' + req.body)
@@ -37,6 +37,7 @@ module.exports = {
             fun_nome,
             fun_email,
             fun_password,
+            fun_sexo,
             empresa_id,
         });
 

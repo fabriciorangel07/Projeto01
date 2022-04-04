@@ -6,6 +6,7 @@ class Funcionarios extends Model {
             fun_nome: DataTypes.STRING,
             fun_password: DataTypes.STRING,
             fun_email: DataTypes.STRING,
+            fun_sexo: DataTypes.STRING,
             empresa_id: DataTypes.INTEGER,
         },{
             sequelize,
