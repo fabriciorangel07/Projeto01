@@ -9,5 +9,7 @@ router.post('/empresas/:empresa_id/funcionarios', funcionariosControllers.store)
 
 router.get('/empresas/:empresa_id/funcionarios', funcionariosControllers.index)
 
+router.put('/empresas/:funcionario_id/funcionarios', funcionariosControllers.update)
+
 module.exports = router
 

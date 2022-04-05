@@ -32,11 +32,6 @@ module.exports = {
         allowNull: false,
       },
 
-      fun_sexo: {
-        type: Sequelize.STRING(1),
-        allowNull: false
-      },
-
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

@@ -2,24 +2,24 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return await queryInterface.createTable('empresas', {
+    return await queryInterface.createTable('usuarios', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      emp_nome: {
+      usr_nome: {
         type: Sequelize.STRING(60),
         allowNull: false,
       },
-      emp_contato: {
-        type: Sequelize.STRING(30),
+      usr_email_contato: {
+        type: Sequelize.STRING(100),
         allowNull: false,
       },
 
-      emp_email: {
-        type: Sequelize.STRING(60),
+      usr_password: {
+        type: Sequelize.STRING(20),
         allowNull: false,
       },
       created_at: {
@@ -30,11 +30,10 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
-_
     });
   },
   
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('empresas');
+    return queryInterface.dropTable('usuarios');
   }
 };

@@ -1,3 +1,4 @@
+const { update } = require('../models/empresasModels.js');
 const Empresas = require('../models/empresasModels.js')
 const Funcionarios = require('../models/funcionariosModels.js');
 //const { index } = require('./indexControllers.js');
@@ -5,7 +6,12 @@ const Funcionarios = require('../models/funcionariosModels.js');
 module.exports = {
 
     async indexAll(req, res) {
-        const funcionarios = await Funcionarios.findAll()
+        const funcionarios = await Funcionarios.findAll({
+            attributes: {
+                exclude: ['fun_senha']
+            }
+
+    })
         return res.json(funcionarios)
     },
 
@@ -23,7 +29,8 @@ module.exports = {
 
     async store(req, res) {
         const { empresa_id } = req.params
-        const { fun_nome, fun_email, fun_password, fun_sexo } = req.body
+        const { fun_nome, fun_email, fun_password, 
+                fun_sexo, fun_logado, fun_senha } = req.body
 
         console.log('Parametro esperado: ' + empresa_id)
         console.log('Dados: ' + req.body)
@@ -37,11 +44,29 @@ module.exports = {
             fun_nome,
             fun_email,
             fun_password,
-            fun_sexo,
             empresa_id,
+            fun_sexo,
+            fun_logado,
+            fun_senha,
         });
 
         return res.json(funcionario);
+    },
+
+    async update(req, res) {
+        const { funcionario_id } = req.params
+        const { fun_nome, fun_email, fun_password, fun_sexo } = req.body
+
+        await Funcionarios.update({
+            fun_nome, fun_email, fun_password, fun_sexo 
+        }, {
+            where: { id: funcionario_id }
+        });
+
+        return res.status(200).send({
+            status: 1,
+            message: "Funcionário atualizado com sucesso!"
+        })
     }
 
 };
