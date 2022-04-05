@@ -11,5 +11,7 @@ router.get('/empresas/:empresa_id/funcionarios', funcionariosControllers.index)
 
 router.put('/empresas/:funcionario_id/funcionarios', funcionariosControllers.update)
 
+router.delete('/empresas/:funcionario_id/funcionarios', funcionariosControllers.delete)
+
 module.exports = router
 

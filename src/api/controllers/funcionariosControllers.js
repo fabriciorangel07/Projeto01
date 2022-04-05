@@ -10,7 +10,6 @@ module.exports = {
             attributes: {
                 exclude: ['fun_senha']
             }
-
     })
         return res.json(funcionarios)
     },
@@ -22,7 +21,6 @@ module.exports = {
         const funcionario = await Empresas.findByPk(empresa_id, {
             include: { association: 'empresa'}
         })
-
         return res.json(funcionario)
 
     },
@@ -67,6 +65,18 @@ module.exports = {
             status: 1,
             message: "Funcionário atualizado com sucesso!"
         })
-    }
+    },
 
+    async delete(req, res) {
+        const { funcionario_id } = req.params
+        await Funcionarios.destroy({ 
+        }, {
+            where: { id: funcionario_id }
+        });
+
+        return res.status(200).send({
+            status: 1,
+            message: "Usuário deletado com sucesso!", funcionario
+        })
+    }
 };
