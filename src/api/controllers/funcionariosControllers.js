@@ -68,7 +68,14 @@ module.exports = {
     },
 
     async delete(req, res) {
-        const { funcionario_id } = req.params
+        const funcionario = await Funcionarios.findByPk(funcionario_id)
+        
+        if (!funcionario) {
+            return res.status(400).json({error: "Usuário não encontrado!"})
+        } else {
+            console.log ("Funcionário encontrado!")
+        }
+
         await Funcionarios.destroy({ 
         }, {
             where: { id: funcionario_id }
@@ -76,7 +83,6 @@ module.exports = {
 
         return res.status(200).send({
             status: 1,
-            message: "Usuário deletado com sucesso!", funcionario
-        })
+            message: "Usuário deletado com sucesso!"})
     }
 };

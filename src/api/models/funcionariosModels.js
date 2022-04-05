@@ -18,9 +18,9 @@ class Funcionarios extends Model {
             hooks: {
                 beforeCreate: (funcionario) => {
                     console.log("Executando....BeforeCreate")
-                    const salt = bcrypt.genSaltSync()
-                    funcionario.fun_senha = bcrypt.hashSync(funcionario.fun_senha, salt)
-                    console.log(funcionario.fun_senha)
+                    //const salt = bcrypt.genSaltSync()
+                   // funcionario.fun_senha = bcrypt.hashSync(funcionario.fun_senha, salt)
+                   // console.log(funcionario.fun_senha)
                 },
 
                 afterCreate: (funcionario) => {
