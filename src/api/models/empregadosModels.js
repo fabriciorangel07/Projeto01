@@ -1,21 +1,22 @@
 const { Model, DataTypes } = require('sequelize')
 
-class Empresas extends Model {
+class Empregados extends Model {
     static init(sequelize) {
         super.init({
             emp_nome: DataTypes.STRING,
             emp_contato: DataTypes.STRING,
             emp_email: DataTypes.STRING,
+            emp_setor: DataTypes.STRING,
         },{
             sequelize,
-            tableName: 'empresas',
+            tableName: 'empregados',
         });
         return this;
     }
 
     static associate(models) {
-        this.hasMany(models.Funcionarios, {foreignKey: "empresa_id", as: 'empresa' })
+        this.hasMany(models.Projetos, {foreignKey: "empregado_id", as: 'empregados' })
     }
 }
  
-module.exports = Empresas
+module.exports = Empregados

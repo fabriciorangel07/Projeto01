@@ -3,7 +3,7 @@ module.exports = {
     dialect: "mysql",
     username: "root",
     password: "123456",
-    database: "webIII",
+    database: "projeto1bimestre2022",
     define: {
         timestamps: true,
         underscored: true,

@@ -3,23 +3,16 @@ const http = require('http')
 
 require('./src/database/indexDb.js');
 
-// instanciar o express
 const app = express();
 
 app.use(express.json())
 
-const indexRoutes = require('./src/api/routes/indexRoutes.js')
-const usersRoutes = require('./src/api/routes/usersRoutes.js')
-const empresasRoutes = require('./src/api/routes/empresasRoutes.js')
-const funcionariosRoutes = require('./src/api/routes/funcionariosRoutes.js')
+const empregadosRoutes = require('./src/api/routes/empregadosRoutes')
+const projetosRoutes = require('./src/api/routes/projetosRoutes')
 
-app.use(indexRoutes)
-app.use(usersRoutes)
+app.use(empregadosRoutes)
+app.use(projetosRoutes)
 
-app.use(empresasRoutes)
-app.use(funcionariosRoutes)
-
-//configurar a porta e url para execução do aplicativo
 app.set('url', 'http://localhost:')
 app.set('porta', 3001);
 

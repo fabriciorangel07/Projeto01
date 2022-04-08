@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return await queryInterface.createTable('funcionarios', {
+    return await queryInterface.createTable('projetos', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -10,25 +10,30 @@ module.exports = {
         primaryKey: true,
       },
 
-      empresa_id: {
+      empregado_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {model: 'empresas', key: 'id'},
+        references: { model: 'empregados', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
 
-      fun_nome: {
+      pro_nome: {
         type: Sequelize.STRING(60),
         allowNull: false,
       },
 
-      fun_password: {
-        type: Sequelize.STRING(30),
+      pro_descricao: {
+        type: Sequelize.STRING(150),
         allowNull: false,
       },
-      fun_email: {
-        type: Sequelize.STRING(60),
+      pro_area: {
+        type: Sequelize.STRING(10),
+        allowNull: false,
+      },
+
+      pro_setor: {
+        type: Sequelize.STRING(80),
         allowNull: false,
       },
 
@@ -42,8 +47,8 @@ module.exports = {
       },
     });
   },
-  
+
   down: async (queryInterface, Sequelize) => {
-    return await queryInterface.dropTable('funcionarios');
+    return await queryInterface.dropTable('projetos');
   }
 };

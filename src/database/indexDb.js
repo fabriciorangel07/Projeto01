@@ -3,8 +3,8 @@ const dbConfig = require('../config/database.js')
 
 const conexao = new Sequelize(dbConfig)
 
-const empresas = require('../api/models/empresasModels.js')
-const funcionarios = require('../api/models/funcionariosModels')
+const empregados = require('../api/models/empregadosModels')
+const projetos = require('../api/models/projetosModels')
 
 try{
     conexao.authenticate();
@@ -13,11 +13,11 @@ try{
     console.log('Conexão não estabelecida!')
 }
 
-empresas.init(conexao)
-funcionarios.init(conexao)
+empregados.init(conexao)
+projetos.init(conexao)
 
-empresas.associate(conexao.models)
-funcionarios.associate(conexao.models)
+empregados.associate(conexao.models)
+projetos.associate(conexao.models)
 
 module.exports = conexao;
 
