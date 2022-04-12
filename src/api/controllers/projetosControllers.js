@@ -45,13 +45,13 @@ module.exports = {
     },
 
     async update(req, res) {
-        const { projeto_id } = req.params
+        const { empregado_id } = req.params
         const { pro_nome, pro_descricao, pro_area, pro_setor } = req.body
 
         await Projetos.update({
             pro_nome, pro_descricao, pro_area, pro_setor
         }, {
-            where: { id: projeto_id }
+            where: { id: empregado_id }
         });
 
         return res.status(200).send({
@@ -61,7 +61,7 @@ module.exports = {
     },
 
     async delete(req, res) {
-        const projeto = await Projetos.findByPk(projeto_id)
+        const projeto = await Projetos.findByPk(empregado_id)
 
         if (!projeto) {
             return res.status(400).json({ error: "Usuário não encontrado!" })
@@ -71,7 +71,7 @@ module.exports = {
 
         await Projetos.destroy({
         }, {
-            where: { id: projeto_id }
+            where: { id: empregado_id }
         });
 
         return res.status(200).send({

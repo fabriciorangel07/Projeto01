@@ -40,7 +40,7 @@ module.exports = {
     });
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('empregados');
-  }
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('empregados');
+  },
 };

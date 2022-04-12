@@ -27,11 +27,11 @@ class Projetos extends Model {
     }
 
     static associate(models) {
-        this.belongsTo(models.Empregados, {foreignKey: "empregado_id", as: "empregados"})
+        this.belongsTo(models.Empregados, {foreignKey: "empregado_id", as: "projetos"})
     }
 }
 
-module.exports = Projetos
+module.exports = Projetos;
 
 
 
